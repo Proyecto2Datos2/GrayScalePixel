@@ -52,7 +52,9 @@ public:
 	//CantGeneraciones=50
 	static const int CantGeneraciones=50;
 	int genRand(int lowBound, int highBound);
-
+	void  SetBits( unsigned short A[],  unsigned short number );
+	void  ClearBit( unsigned short A[],  int k );
+	int  getBit( unsigned short A[],  int k );
 };
 
 #endif /* CONSTANTES_H_ */

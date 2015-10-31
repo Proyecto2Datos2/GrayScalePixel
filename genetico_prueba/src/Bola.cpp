@@ -47,22 +47,23 @@ void Bola::correr(){
 	_posF[cero]=_posI[cero];
 	_posF[uno]=_posI[uno];
 	cout<<_angulo<<endl;
-	int SumPosX=_fuerza;//*sin(_angulo*(pi/cientoOchenta));
-	int SumPosY=_fuerza;//*cos(_angulo*(pi/cientoOchenta));
+	unsigned short SumPosX=dos*sin(_angulo*(pi/cientoOchenta));
+	unsigned short SumPosY=dos*cos(_angulo*(pi/cientoOchenta));
 	for(int i=0; i<(_fuerza*ochenta); i++){
 		_posF[cero]+=SumPosX;
 		_posF[uno]+=SumPosY;
+		cout<<_posF[cero]<<"--"<<_posF[uno]<<endl;
 		if(_posF[cero]==posXPista){
 			SumPosX=(-SumPosX);//*cos(_angulo*(pi/cientoOchenta)));
 		}
 		else if(_posF[cero]==cero){
-			SumPosX=(SumPosX);//*cos(_angulo*(pi/cientoOchenta)));
+			SumPosX=(-SumPosX);//*cos(_angulo*(pi/cientoOchenta)));
 		}
 		if(_posF[uno]==posYPista){
 			SumPosY=(-SumPosY);//*sin(_angulo*(pi/cientoOchenta)));
 		}
 		else if(_posF[uno]==cero){
-			SumPosY=(SumPosY);//*sin(_angulo*(pi/cientoOchenta)));
+			SumPosY=(-SumPosY);//*sin(_angulo*(pi/cientoOchenta)));
 		}
 		if(_posF[cero]==_posBB[cero]&&_posF[uno]==_posBB[uno]){
 			cout<<"se a golpeado la bola blanca"<<endl;

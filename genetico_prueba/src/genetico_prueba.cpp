@@ -8,8 +8,13 @@
 
 #include <iostream>
 #include <ctime>
+#include <stdio.h>
+#include <stdint.h>
 #include <cstdlib>
 #include "Bola.h"
+#define ClearBit(A,k)   ( A[(k/16)] &= ~(1 << (k%16)) )
+#define TestBit(A,k)    ( A[(k/16)] & (1 << (k%16)) )
+
 using namespace std;
 
 static const int cero=0;
@@ -30,6 +35,21 @@ int genRand(int lowBound, int highBound){
 	return rand()%(highBound-lowBound+1)+lowBound;
 }
 
+void SetBit(unsigned short A[],unsigned short number){
+	int k, c;
+	for (c = 15; c>=0; c--){
+		k = number>>c;
+		if (k & 1){
+			cout<<"1";
+			A[c/16] |= 1 << (c%16);
+		}
+		else{
+			cout<<"0";
+			A[c/16] |= 0 << (c%16);
+		}
+	}
+	cout<<endl;
+}
 /**
  * metodo para ordenar los individuos de menor a mayor
  * segun su fitness, se escojen los menores, ya que
@@ -86,7 +106,7 @@ void correr(Bola* poblacion[]){
 int main(int argc, char** argv){
 	//creo un arreglo de puntero para los primero diez individuos.
 	//Bola* _poblacion[diez];
-	srand(time(0));
+	/*srand(time(0));
 	int posBB[dos]={genRand(cero,posXPista),genRand(cero,posYPista)};
 	unsigned short direcc=genRand(cero, anguloMax);
 	unsigned short fuerza=genRand(cero, fuerzaMax);
@@ -94,7 +114,13 @@ int main(int argc, char** argv){
 	Bola* individuo=new Bola(posBB);
 	individuo->setAttr(direcc,fuerza, pos);
 	individuo->correr();
-	//correr(_poblacion);
-	cout << individuo->getFitness() << endl; // prints !!!Hello World!!!
+	correr(_poblacion);*/
+	unsigned short arreglo[1]={0};
+	SetBit(arreglo,10000);
+	for(int i=0; i<16;i++){
+		if(TestBit(arreglo,i))
+			cout<<"Bit %d was set !\n"<<i<<endl;
+	}
+	//cout << individuo->getFitness() << endl; // prints !!!Hello World!!!
 	return 0;
 }

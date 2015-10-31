@@ -75,13 +75,14 @@ void AlGenetico::reproducir(){
 		randFit-=temp[i]->getFitness();
 		temp[i+uno]= getPadre(randFit,tempPadres);
 	}
-	Bola* hijos[poblacionT];//arreglo para ingresar a los nuevos hijos
-	//aqui vamos a hacer la nueva reproduccion
-	//se van a agarrar los padres de 2 en dos.
+	Bola* hijos[poblacionT];
 	if(_generaciones==cien){
 		if(genRand(cero,uno)==cero){}
 			//mutar(); aca hacemos la mutacion
 		//intercambiar(); aca hacemos el intercambio
+	}
+	for(int i=0; i<poblacionT;i++){
+		unsigned short arreglo[]
 	}
 	merge(hijos);
 }
