@@ -15,6 +15,10 @@
 #include "Constantes.h"
 
 using namespace std;
+
+/**
+ * clase de bola para crear los individuos que va a utilizarse.
+ */
 class Bola: public Constantes{
 public:
 	Bola(int pPosBB[]);

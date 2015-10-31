@@ -15,6 +15,10 @@
 
 using namespace std;
 
+/**
+ * clase para guardar los datos de la pista de villar
+ * e interactuar si se es necesario.
+ */
 class pistaVillar :public Constantes{
 public:
 	pistaVillar();

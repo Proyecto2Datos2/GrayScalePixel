@@ -47,8 +47,8 @@ void Bola::correr(){
 	_posF[cero]=_posI[cero];
 	_posF[uno]=_posI[uno];
 	cout<<_angulo<<endl;
-	int SumPosX=dos;//*sin(_angulo*(pi/cientoOchenta));
-	int SumPosY=dos;//*cos(_angulo*(pi/cientoOchenta));
+	int SumPosX=_fuerza;//*sin(_angulo*(pi/cientoOchenta));
+	int SumPosY=_fuerza;//*cos(_angulo*(pi/cientoOchenta));
 	for(int i=0; i<(_fuerza*ochenta); i++){
 		_posF[cero]+=SumPosX;
 		_posF[uno]+=SumPosY;
@@ -69,8 +69,8 @@ void Bola::correr(){
 			break;
 		}
 	}
-	int x=pow((_posBB[cero]-_posF[cero]),dos);
-	int y=pow((_posBB[uno]-_posF[uno]),dos);
+	int x=pow((_posF[cero]-_posBB[cero]),dos);
+	int y=pow((_posF[uno]-_posBB[uno]),dos);
 	_fitness=sqrt(x+y);
 }
 
